@@ -1,9 +1,10 @@
-from setuptools import setup, find_packages
 import os
+
+from setuptools import find_packages, setup
 
 # Read the contents of README.md
 this_directory = os.path.abspath(os.path.dirname(__file__))
-with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
+with open(os.path.join(this_directory, "README.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 setup(
@@ -18,7 +19,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     package_data={
-        'blockdoc': ['schema/*.json'],
+        "blockdoc": ["schema/*.json"],
     },
     classifiers=[
         "Development Status :: 5 - Production/Stable",
@@ -44,8 +45,7 @@ setup(
         "dev": [
             "pytest>=7.0.0",
             "pytest-cov>=4.0.0",
-            "black>=23.0.0",
-            "flake8>=6.0.0",
+            "ruff>=0.1.0",
             "mypy>=1.0.0",
             "twine>=4.0.0",
         ],

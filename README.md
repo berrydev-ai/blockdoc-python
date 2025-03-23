@@ -204,6 +204,10 @@ pytest --cov=blockdoc
 
 # Run a specific test file
 pytest tests/core/test_block.py
+
+# Run linting and formatting with ruff
+ruff check .
+ruff format .
 ```
 
 ## Contributing

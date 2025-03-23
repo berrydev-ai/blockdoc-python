@@ -10,4 +10,12 @@ from blockdoc.renderers.html import render_to_html
 from blockdoc.renderers.markdown import render_to_markdown
 from blockdoc.schema.loader import schema
 
-__version__ = '1.0.1'
+__all__ = [
+    "Block",
+    "BlockDocDocument",
+    "render_to_html",
+    "render_to_markdown",
+    "schema",
+]
+
+__version__ = "1.0.1"

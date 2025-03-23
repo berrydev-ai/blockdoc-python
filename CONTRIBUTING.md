@@ -47,17 +47,20 @@ BlockDoc follows [PEP 8](https://www.python.org/dev/peps/pep-0008/) with a few c
 - Line length: 88 characters
 - Use docstrings for all public modules, functions, classes, and methods
 - Type hints are encouraged for all functions
-- Black and isort are used for formatting
+- Ruff is used for linting and formatting (compatible with Black style)
 
 To check and fix code style:
 
 ```bash
 # Run linting
-flake8 blockdoc tests
+ruff check blockdoc tests
 
-# Run formatters
-black blockdoc tests
-isort blockdoc tests
+# Run formatting
+ruff format blockdoc tests
+
+# Or use the provided scripts
+./scripts/lint.sh
+./scripts/format.sh
 ```
 
 ## Testing
