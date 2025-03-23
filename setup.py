@@ -8,7 +8,7 @@ with open(os.path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
     name="blockdoc",
-    version="1.0.0",
+    version="1.0.1",
     author="Eric Berry",
     author_email="eric@berrydev.ai",
     description="A simple, powerful standard for structured content that works beautifully with LLMs, humans, and modern editors",
