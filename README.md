@@ -2,16 +2,13 @@
 
 A simple, powerful standard for structured content that works beautifully with LLMs, humans, and modern editors.
 
-[![npm version](https://img.shields.io/npm/v/blockdoc.svg)](https://www.npmjs.com/package/blockdoc)
-[![python version](https://img.shields.io/pypi/pyversions/blockdoc.svg)](https://pypi.org/project/blockdoc/)
-[![Build Status](https://travis-ci.com/yourusername/blockdoc.svg?branch=main)](https://travis-ci.com/yourusername/blockdoc)
-[![Coverage Status](https://coveralls.io/repos/github/yourusername/blockdoc/badge.svg?branch=main)](https://coveralls.io/github/yourusername/blockdoc?branch=main)
-[![Documentation Status](https://readthedocs.org/projects/blockdoc/badge/?version=latest)](https://blockdoc.readthedocs.io/en/latest/)
+[![PyPI version](https://img.shields.io/pypi/v/blockdoc.svg)](https://pypi.org/project/blockdoc/)
+[![Python versions](https://img.shields.io/pypi/pyversions/blockdoc.svg)](https://pypi.org/project/blockdoc/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## Why blockdoc?
+## Why BlockDoc?
 
-blockdoc provides a lightweight, flexible format for structured content that is:
+BlockDoc provides a lightweight, flexible format for structured content that is:
 
 - **LLM-friendly**: Optimized for AI generation and targeted modifications
 - **Simple**: Flat structure with semantic IDs and minimal nesting
@@ -59,12 +56,12 @@ This architecture enables:
 ```json
 {
   "article": {
-    "title": "Getting Started with blockdoc",
+    "title": "Getting Started with BlockDoc",
     "blocks": [
       {
         "id": "intro",
         "type": "text",
-        "content": "blockdoc makes structured content **simple**."
+        "content": "BlockDoc makes structured content **simple**."
       },
       {
         "id": "first-steps",
@@ -75,7 +72,7 @@ This architecture enables:
       {
         "id": "step-one",
         "type": "text",
-        "content": "Install blockdoc using npm: `npm install blockdoc`"
+        "content": "Install BlockDoc using pip: `pip install blockdoc`"
       }
     ]
   }
@@ -153,16 +150,29 @@ async def update_section(document, block_id, prompt):
 
 ## Documentation
 
-- [Full Specification](docs/spec/blockdoc-specification.md)
-- [API Reference](docs/api-docs/)
-- [Tutorials](docs/tutorials/)
-  - [Getting Started](docs/tutorials/getting-started.md)
-  - [Block Types](docs/tutorials/block-types.md)
-  - [LLM Integration](docs/tutorials/llm-integration.md)
-- [Examples](examples/README.md)
-  - [Simple Blog](examples/simple-blog/)
-  - [React Demo](examples/react-demo/)
-  - [LLM Integration](examples/llm-integration/)
+### Specification
+
+- [Full Specification](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/spec/blockdoc-specification.md)
+
+### API Reference
+
+- [Block Class](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/api-docs/block.md)
+- [BlockDocDocument Class](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/api-docs/document.md)
+- [HTML Renderer](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/api-docs/renderers/html.md)
+- [Markdown Renderer](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/api-docs/renderers/markdown.md)
+- [Sanitization Utilities](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/api-docs/utils/sanitize.md)
+
+### Tutorials
+
+- [Getting Started](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/tutorials/getting-started.md)
+- [Block Types](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/tutorials/block-types.md)
+- [LLM Integration](https://github.com/berrydev-ai/blockdoc-python/blob/main/docs/tutorials/llm-integration.md)
+
+### Examples
+
+- [Simple Blog Generator](https://github.com/berrydev-ai/blockdoc-python/blob/main/examples/simple-blog/)
+- [LLM Content Integration](https://github.com/berrydev-ai/blockdoc-python/blob/main/examples/llm-integration/)
+- [Basic Usage Example](https://github.com/berrydev-ai/blockdoc-python/blob/main/examples/basic_example.py)
 
 ## Development
 
@@ -198,8 +208,8 @@ pytest tests/core/test_block.py
 
 ## Contributing
 
-We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute, including our testing guidelines.
+We welcome contributions! See [CONTRIBUTING.md](https://github.com/berrydev-ai/blockdoc-python/blob/main/CONTRIBUTING.md) for details on how to contribute, including our testing guidelines.
 
 ## License
 
-MIT
+[MIT](https://github.com/berrydev-ai/blockdoc-python/blob/main/LICENSE)

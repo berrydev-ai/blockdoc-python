@@ -1,0 +1,118 @@
+[
+  {
+    "type": "text",
+    "id": "introduction",
+    "content": "Welcome to this sample blog post created with **BlockDoc**! This post demonstrates how to structure content using different block types for maximum flexibility and control."
+  },
+  {
+    "type": "heading",
+    "id": "what-is-blockdoc",
+    "level": 2,
+    "content": "What is BlockDoc?"
+  },
+  {
+    "type": "text",
+    "id": "blockdoc-description",
+    "content": "BlockDoc is a structured content format designed for creating, managing, and rendering content in a way that is optimized for both human authors and language models (LLMs). It provides a simple, intuitive structure that makes content easier to manipulate, update, and transform programmatically."
+  },
+  {
+    "type": "image",
+    "id": "blockdoc-structure",
+    "url": "https://placehold.co/800x400?text=BlockDoc+Document+Structure",
+    "alt": "Diagram showing BlockDoc document structure",
+    "caption": "Figure 1: Visual representation of a BlockDoc document structure"
+  },
+  {
+    "type": "heading",
+    "id": "key-features",
+    "level": 2,
+    "content": "Key Features"
+  },
+  {
+    "type": "list",
+    "id": "features-list",
+    "items": [
+      "**Block-based architecture**: Content is organized into discrete, individually addressable blocks",
+      "**Semantic IDs**: Each block has a meaningful identifier",
+      "**LLM-friendly**: Designed for AI generation and targeted modifications",
+      "**Framework-agnostic**: Works with any frontend or backend technology",
+      "**Database-ready**: Easy to store in SQL or NoSQL databases"
+    ],
+    "list_type": "unordered"
+  },
+  {
+    "type": "heading",
+    "id": "code-example",
+    "level": 2,
+    "content": "Code Example"
+  },
+  {
+    "type": "text",
+    "id": "code-intro",
+    "content": "Here's a simple example of how to create a BlockDoc document in Python:"
+  },
+  {
+    "type": "code",
+    "id": "python-code",
+    "language": "python",
+    "content": "from blockdoc import BlockDocDocument, Block\n\n# Create a new document\ndoc = BlockDocDocument({\n    \"title\": \"My First BlockDoc Post\",\n    \"metadata\": {\n        \"author\": \"Your Name\",\n        \"tags\": [\"blockdoc\", \"tutorial\"]\n    }\n})\n\n# Add blocks\ndoc.add_block(Block.text(\n    \"intro\",\n    \"Welcome to my **first** BlockDoc post!\"\n))\n\ndoc.add_block(Block.heading(\n    \"section-1\",\n    2,\n    \"Getting Started\"\n))\n\n# Render to different formats\nhtml = doc.render_to_html()\nmarkdown = doc.render_to_markdown()\njson_str = doc.to_json()"
+  },
+  {
+    "type": "heading",
+    "id": "block-types",
+    "level": 2,
+    "content": "Block Types"
+  },
+  {
+    "type": "text",
+    "id": "block-types-intro",
+    "content": "BlockDoc supports a variety of block types to represent different kinds of content:"
+  },
+  {
+    "type": "list",
+    "id": "block-types-list",
+    "items": [
+      "**Text**: Markdown-formatted text content",
+      "**Heading**: Section headings with levels 1-6",
+      "**Image**: Images with URL, alt text, and optional caption",
+      "**Code**: Code snippets with language highlighting",
+      "**List**: Ordered or unordered lists",
+      "**Quote**: Blockquotes with optional attribution",
+      "**Embed**: Embedded content like videos or tweets",
+      "**Divider**: Horizontal dividers between sections"
+    ],
+    "list_type": "unordered"
+  },
+  {
+    "type": "quote",
+    "id": "testimonial",
+    "content": "BlockDoc has revolutionized how we structure content for our applications. The block-based approach makes it easy to update specific sections and render in different formats.",
+    "attribution": "Jane Developer, AI Solutions Inc."
+  },
+  {
+    "type": "heading",
+    "id": "llm-integration",
+    "level": 2,
+    "content": "LLM Integration"
+  },
+  {
+    "type": "text",
+    "id": "llm-text",
+    "content": "BlockDoc shines when integrated with Language Models (LLMs). Its structure allows for targeted content generation and updates, making it perfect for AI-assisted content workflows. Check out the [LLM integration example](../llm-integration/) for more details."
+  },
+  {
+    "type": "divider",
+    "id": "section-divider"
+  },
+  {
+    "type": "heading",
+    "id": "conclusion",
+    "level": 2,
+    "content": "Conclusion"
+  },
+  {
+    "type": "text",
+    "id": "conclusion-text",
+    "content": "This sample blog post demonstrates how BlockDoc can be used to create structured content with a variety of block types. The JSON-based format makes it easy to store, manipulate, and render content in different ways.\n\nFor more information, check out the [BlockDoc documentation](../../docs/) and [examples](../)."
+  }
+]
