@@ -1,0 +1,243 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "BlockDoc Document",
+  "description": "A structured text content format optimized for LLMs and targeted content editing",
+  "type": "object",
+  "required": [
+    "article"
+  ],
+  "properties": {
+    "article": {
+      "type": "object",
+      "required": [
+        "title",
+        "blocks"
+      ],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "The title of the article"
+        },
+        "metadata": {
+          "type": "object",
+          "description": "Optional metadata for the article",
+          "properties": {
+            "author": {
+              "type": "string"
+            },
+            "publishedDate": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "blocks": {
+          "type": "array",
+          "description": "The content blocks that make up the article",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "type",
+              "content"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "A unique, semantic identifier for the block",
+                "pattern": "^[a-zA-Z0-9-_]+$"
+              },
+              "type": {
+                "type": "string",
+                "description": "The type of content block",
+                "enum": [
+                  "text",
+                  "heading",
+                  "image",
+                  "code",
+                  "list",
+                  "quote",
+                  "embed",
+                  "divider"
+                ]
+              },
+              "content": {
+                "type": "string",
+                "description": "The content of the block, interpreted based on type (markdown for text)"
+              },
+              "level": {
+                "type": "integer",
+                "description": "The level for heading blocks (1-6)",
+                "minimum": 1,
+                "maximum": 6
+              },
+              "language": {
+                "type": "string",
+                "description": "Programming language for code blocks"
+              },
+              "url": {
+                "type": "string",
+                "format": "uri",
+                "description": "URL for image or embed blocks"
+              },
+              "alt": {
+                "type": "string",
+                "description": "Alt text for image blocks"
+              },
+              "caption": {
+                "type": "string",
+                "description": "Optional caption for media blocks"
+              },
+              "items": {
+                "type": "array",
+                "description": "Items for list blocks",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "list_type": {
+                "type": "string",
+                "description": "Type of list (ordered or unordered)",
+                "enum": [
+                  "ordered",
+                  "unordered"
+                ]
+              },
+              "listType": {
+                "type": "string",
+                "description": "Type of list (ordered or unordered) - legacy format",
+                "enum": [
+                  "ordered",
+                  "unordered"
+                ]
+              },
+              "embed_type": {
+                "type": "string",
+                "description": "Type of embedded content",
+                "enum": [
+                  "youtube",
+                  "twitter",
+                  "generic"
+                ]
+              },
+              "embedType": {
+                "type": "string",
+                "description": "Type of embedded content - legacy format",
+                "enum": [
+                  "youtube",
+                  "twitter",
+                  "generic"
+                ]
+              },
+              "attribution": {
+                "type": "string",
+                "description": "Attribution for quote blocks"
+              }
+            },
+            "allOf": [
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "heading"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "level"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "code"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "language"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "image"
+                    }
+                  }
+                },
+                "then": {
+                  "required": [
+                    "url",
+                    "alt"
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "list"
+                    }
+                  }
+                },
+                "then": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "items",
+                        "list_type"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "items",
+                        "listType"
+                      ]
+                    }
+                  ]
+                }
+              },
+              {
+                "if": {
+                  "properties": {
+                    "type": {
+                      "const": "embed"
+                    }
+                  }
+                },
+                "then": {
+                  "anyOf": [
+                    {
+                      "required": [
+                        "url",
+                        "embed_type"
+                      ]
+                    },
+                    {
+                      "required": [
+                        "url",
+                        "embedType"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}
