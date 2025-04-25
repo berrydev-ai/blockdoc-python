@@ -48,6 +48,8 @@ setup(
             "ruff>=0.1.0",
             "mypy>=1.0.0",
             "twine>=4.0.0",
+            "flake8>=6.0.0",
+            "black>=23.0.0",
         ],
     },
     keywords=[
