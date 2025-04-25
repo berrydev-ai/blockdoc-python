@@ -439,7 +439,7 @@ def generate_block_id(block: Dict[str, str]) -> str:
 
     # For headings, create an ID from the content
     if block_type == "heading" and content:
-        # Convert to lowercase, replace spaces with hyphens, remove non-alphanumeric chars
+        # Convert to lowercase, replace spaces with hyphens, remove non-alphanumeric
         slug = re.sub(r"[^\w\s-]", "", content.lower())
         slug = re.sub(r"[\s-]+", "-", slug).strip("-")
         return slug[:40]  # Limit length of ID

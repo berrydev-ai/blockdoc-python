@@ -1,7 +1,8 @@
 """
 BlockDoc
 
-A simple, powerful standard for structured content that works beautifully with LLMs, humans, and modern editors.
+A simple, powerful standard for structured content that works beautifully with LLMs,
+humans, and modern editors.
 """
 
 from blockdoc.core.block import Block
