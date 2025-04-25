@@ -9,7 +9,7 @@ with open(os.path.join(this_directory, "README.md"), encoding="utf-8") as f:
 
 setup(
     name="blockdoc",
-    version="1.0.1",
+    version="1.1.0",
     author="Eric Berry",
     author_email="eric@berrydev.ai",
     description="A simple, powerful standard for structured content that works beautifully with LLMs, humans, and modern editors",
@@ -26,7 +26,6 @@ setup(
         "Intended Audience :: Developers",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.10",
@@ -35,7 +34,7 @@ setup(
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Topic :: Text Processing :: Markup",
     ],
-    python_requires=">=3.7",
+    python_requires=">=3.8",
     install_requires=[
         "markdown>=3.3.0",
         "pygments>=2.10.0",

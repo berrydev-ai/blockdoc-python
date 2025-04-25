@@ -2,6 +2,6 @@
 
 # Run ruff formatter on the codebase
 echo "Running Ruff formatter..."
-ruff format .
+ruff format blockdoc tests examples
 
 echo "Done!"

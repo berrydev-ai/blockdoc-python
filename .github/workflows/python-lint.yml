@@ -22,13 +22,10 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install .[dev]
     
-    - name: Lint with flake8
+    - name: Lint and check formatting with ruff
       run: |
-        flake8 blockdoc tests
-    
-    - name: Check formatting with black
-      run: |
-        black --check blockdoc tests
+        ruff check blockdoc tests examples
+        ruff format --check blockdoc tests examples
     
     - name: Type check with mypy
       run: |

@@ -55,11 +55,7 @@ def create_blog_post(title, author, content_json=None):
                 blog_post.add_block(Block.text(block_id, item.get("content", "")))
 
             elif block_type == "heading":
-                blog_post.add_block(
-                    Block.heading(
-                        block_id, item.get("level", 2), item.get("content", "")
-                    )
-                )
+                blog_post.add_block(Block.heading(block_id, item.get("level", 2), item.get("content", "")))
 
             elif block_type == "image":
                 blog_post.add_block(
@@ -72,11 +68,7 @@ def create_blog_post(title, author, content_json=None):
                 )
 
             elif block_type == "code":
-                blog_post.add_block(
-                    Block.code(
-                        block_id, item.get("language", "text"), item.get("content", "")
-                    )
-                )
+                blog_post.add_block(Block.code(block_id, item.get("language", "text"), item.get("content", "")))
 
             elif block_type == "list":
                 blog_post.add_block(
@@ -88,11 +80,7 @@ def create_blog_post(title, author, content_json=None):
                 )
 
             elif block_type == "quote":
-                blog_post.add_block(
-                    Block.quote(
-                        block_id, item.get("content", ""), item.get("attribution")
-                    )
-                )
+                blog_post.add_block(Block.quote(block_id, item.get("content", ""), item.get("attribution")))
 
             elif block_type == "divider":
                 blog_post.add_block(Block.divider(block_id))
@@ -178,14 +166,10 @@ def main():
     Main function to run the blog generator
     """
     parser = argparse.ArgumentParser(description="Generate a blog post using BlockDoc")
-    parser.add_argument(
-        "--title", default="BlockDoc Blog Example", help="Blog post title"
-    )
+    parser.add_argument("--title", default="BlockDoc Blog Example", help="Blog post title")
     parser.add_argument("--author", default="BlockDoc Team", help="Blog post author")
     parser.add_argument("--content", help="Path to JSON file with content structure")
-    parser.add_argument(
-        "--output-dir", default="./output", help="Output directory for generated files"
-    )
+    parser.add_argument("--output-dir", default="./output", help="Output directory for generated files")
 
     args = parser.parse_args()
 

@@ -180,9 +180,7 @@ def test_document_move_block():
 
 def test_document_to_dict():
     """Test to_dict method"""
-    doc = BlockDocDocument(
-        {"title": "Test Document", "metadata": {"author": "Test Author"}}
-    )
+    doc = BlockDocDocument({"title": "Test Document", "metadata": {"author": "Test Author"}})
 
     doc.add_block(Block.text("intro", "Introduction"))
 

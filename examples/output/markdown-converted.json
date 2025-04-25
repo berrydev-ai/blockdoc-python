@@ -1,0 +1,140 @@
+{
+  "article": {
+    "title": "Markdown to BlockDoc Conversion",
+    "metadata": {
+      "author": "BlockDoc Team",
+      "publishedDate": "2025-04-25T15:51:21.904700",
+      "tags": [
+        "markdown",
+        "conversion",
+        "example"
+      ]
+    },
+    "blocks": [
+      {
+        "id": "text-6bde1965",
+        "type": "text",
+        "content": "This is a demonstration of converting **Markdown** content to BlockDoc format."
+      },
+      {
+        "id": "key-features",
+        "type": "heading",
+        "content": "Key Features",
+        "level": 2
+      },
+      {
+        "id": "text-5c1cd4c6",
+        "type": "text",
+        "content": "BlockDoc makes it easy to work with structured content:"
+      },
+      {
+        "id": "unordered-list-36e4adc8",
+        "type": "list",
+        "content": "",
+        "items": [
+          "Maintains semantic structure",
+          "Preserves formatting",
+          "Creates meaningful block IDs"
+        ],
+        "list_type": "unordered"
+      },
+      {
+        "id": "code-examples",
+        "type": "heading",
+        "content": "Code Examples",
+        "level": 3
+      },
+      {
+        "id": "text-0c25e226",
+        "type": "text",
+        "content": "Here's an example of Python code:"
+      },
+      {
+        "id": "code-python-ff977aa3",
+        "type": "code",
+        "content": "from blockdoc import markdown_to_blockdoc\n\n# Convert markdown to BlockDoc\ndoc = markdown_to_blockdoc(markdown_text)\n\n# Export as JSON\njson_str = doc.to_json()\nprint(json_str)",
+        "language": "python"
+      },
+      {
+        "id": "images-and-media",
+        "type": "heading",
+        "content": "Images and Media",
+        "level": 2
+      },
+      {
+        "id": "text-c3fdfd77",
+        "type": "text",
+        "content": "Images are properly converted:"
+      },
+      {
+        "id": "image-101fc707",
+        "type": "image",
+        "content": "",
+        "url": "https://placehold.co/600x400?text=Example+Image",
+        "alt": "Example image",
+        "caption": "Example image caption"
+      },
+      {
+        "id": "block-quotes",
+        "type": "heading",
+        "content": "Block Quotes",
+        "level": 2
+      },
+      {
+        "id": "text-8a6ab0c7",
+        "type": "text",
+        "content": "BlockDoc handles various content types:"
+      },
+      {
+        "id": "quote-25f02b35",
+        "type": "quote",
+        "content": "This is a block quote that will be properly converted\nto a BlockDoc quote block, preserving its formatting\nand presentation.",
+        "attribution": "Attribution Source"
+      },
+      {
+        "id": "divider-f94a9524",
+        "type": "divider",
+        "content": ""
+      },
+      {
+        "id": "lists",
+        "type": "heading",
+        "content": "Lists",
+        "level": 2
+      },
+      {
+        "id": "ordered-list-414f8890",
+        "type": "list",
+        "content": "",
+        "items": [
+          "Ordered lists work great",
+          "With multiple items",
+          "Preserving the numbering"
+        ],
+        "list_type": "ordered"
+      },
+      {
+        "id": "unordered-list-d682e69f",
+        "type": "list",
+        "content": "",
+        "items": [
+          "Unordered lists too",
+          "With proper nesting",
+          "And formatting"
+        ],
+        "list_type": "unordered"
+      },
+      {
+        "id": "the-end",
+        "type": "heading",
+        "content": "The End",
+        "level": 2
+      },
+      {
+        "id": "text-78faa450",
+        "type": "text",
+        "content": "This example shows how Markdown can be seamlessly converted to BlockDoc format, preserving\nthe document structure while enabling all the benefits of block-based content."
+      }
+    ]
+  }
+}

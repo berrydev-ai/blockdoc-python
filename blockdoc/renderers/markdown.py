@@ -17,11 +17,7 @@ def render_to_markdown(article):
     Returns:
         str: Markdown representation
     """
-    if (
-        not article
-        or "blocks" not in article
-        or not isinstance(article["blocks"], list)
-    ):
+    if not article or "blocks" not in article or not isinstance(article["blocks"], list):
         raise ValueError("Invalid article structure")
 
     markdown = [f"# {article['title']}", ""]
@@ -35,19 +31,13 @@ def render_to_markdown(article):
 
         if metadata.get("publishedDate"):
             try:
-                date = datetime.fromisoformat(
-                    metadata["publishedDate"].replace("Z", "+00:00")
-                )
+                date = datetime.fromisoformat(metadata["publishedDate"].replace("Z", "+00:00"))
                 markdown.append(f"> Published: {date.strftime('%a %b %d %Y')}")
             except (ValueError, AttributeError):
                 # If date parsing fails, just use the raw value
                 markdown.append(f"> Published: {metadata['publishedDate']}")
 
-        if (
-            metadata.get("tags")
-            and isinstance(metadata["tags"], list)
-            and metadata["tags"]
-        ):
+        if metadata.get("tags") and isinstance(metadata["tags"], list) and metadata["tags"]:
             markdown.append(f"> Tags: {', '.join(metadata['tags'])}")
 
         markdown.append("")
