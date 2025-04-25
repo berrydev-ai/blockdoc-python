@@ -2,8 +2,6 @@
 Test the Markdown to BlockDoc converter
 """
 
-import pytest
-
 from blockdoc.conversions.markdown import markdown_to_blockdoc
 from blockdoc.core.document import BlockDocDocument
 

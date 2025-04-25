@@ -16,9 +16,7 @@ def test_block_init():
     assert text_block.content == "Hello world"
 
     # Test heading block
-    heading_block = Block(
-        {"id": "title", "type": "heading", "level": 1, "content": "Title"}
-    )
+    heading_block = Block({"id": "title", "type": "heading", "level": 1, "content": "Title"})
     assert heading_block.id == "title"
     assert heading_block.type == "heading"
     assert heading_block.level == 1
@@ -57,9 +55,7 @@ def test_block_init_missing_required_props():
     # Image without url and alt
     with pytest.raises(ValueError) as excinfo:
         Block({"id": "image", "type": "image", "content": ""})
-    assert "requires property" in str(excinfo.value) and (
-        "url" in str(excinfo.value) or "alt" in str(excinfo.value)
-    )
+    assert "requires property" in str(excinfo.value) and ("url" in str(excinfo.value) or "alt" in str(excinfo.value))
 
 
 def test_block_update():
@@ -103,9 +99,7 @@ def test_block_factory_methods():
     assert heading_block.content == "Title"
 
     # Image block
-    image_block = Block.image(
-        "hero", "https://example.com/image.jpg", "Alt text", "Caption"
-    )
+    image_block = Block.image("hero", "https://example.com/image.jpg", "Alt text", "Caption")
     assert image_block.id == "hero"
     assert image_block.type == "image"
     assert image_block.url == "https://example.com/image.jpg"
@@ -134,9 +128,7 @@ def test_block_factory_methods():
     assert quote_block.attribution == "Famous person"
 
     # Embed block
-    embed_block = Block.embed(
-        "video", "https://youtube.com/watch?v=123", "youtube", "Video caption"
-    )
+    embed_block = Block.embed("video", "https://youtube.com/watch?v=123", "youtube", "Video caption")
     assert embed_block.id == "video"
     assert embed_block.type == "embed"
     assert embed_block.url == "https://youtube.com/watch?v=123"

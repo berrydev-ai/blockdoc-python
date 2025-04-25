@@ -41,10 +41,7 @@ class Block:
             raise ValueError("Block ID is required")
 
         if not data.get("type") or data.get("type") not in ALLOWED_TYPES:
-            raise ValueError(
-                f"Invalid block type: {data.get('type')}. "
-                f"Allowed types are: {', '.join(ALLOWED_TYPES)}"
-            )
+            raise ValueError(f"Invalid block type: {data.get('type')}. Allowed types are: {', '.join(ALLOWED_TYPES)}")
 
         # Basic properties all blocks have
         self.id = data["id"]
@@ -60,9 +57,7 @@ class Block:
                 python_prop = "list_type"
 
             if python_prop not in data and prop not in data:
-                raise ValueError(
-                    f'Block of type "{self.type}" requires property "{prop}"'
-                )
+                raise ValueError(f'Block of type "{self.type}" requires property "{prop}"')
 
             # Check both formats and prefer snake_case
             if python_prop in data:

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-# Run ruff linting checks
+# Run ruff linting checks with auto-fix
 echo "Running Ruff linter..."
-ruff check blockdoc tests examples
+ruff check --fix blockdoc tests examples
 
 # Run ruff formatting
 echo "Running Ruff formatter..."

@@ -325,9 +325,7 @@ def main():
     """
     Main function to run the example
     """
-    parser = argparse.ArgumentParser(
-        description="Generate content with LLMs and BlockDoc"
-    )
+    parser = argparse.ArgumentParser(description="Generate content with LLMs and BlockDoc")
     parser.add_argument(
         "--title",
         default="BlockDoc: A Modern Approach to Structured Content",
@@ -375,9 +373,7 @@ def main():
         print(f"Updated document saved to {updated_path}")
 
         # Also save HTML for preview
-        html_path = os.path.join(
-            args.output_dir, f"updated_{os.path.splitext(output_file)[0]}.html"
-        )
+        html_path = os.path.join(args.output_dir, f"updated_{os.path.splitext(output_file)[0]}.html")
         with open(html_path, "w", encoding="utf-8") as f:
             f.write(document.render_to_html())
         print(f"HTML preview saved to {html_path}")

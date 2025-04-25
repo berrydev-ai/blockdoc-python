@@ -115,11 +115,7 @@ def split_markdown_into_blocks(markdown_text: str) -> List[Dict[str, str]]:
             continue
 
         # Handle horizontal rules
-        if (
-            re.match(r"^(---|\*\*\*|___)\s*$", stripped_line)
-            and not in_quote
-            and not in_list
-        ):
+        if re.match(r"^(---|\*\*\*|___)\s*$", stripped_line) and not in_quote and not in_list:
             if current_block:
                 blocks.append(current_block)
             blocks.append({"type": "divider", "content": ""})
@@ -141,13 +137,7 @@ def split_markdown_into_blocks(markdown_text: str) -> List[Dict[str, str]]:
             continue
 
         # Handle Setext-style headings (Heading\n=====)
-        if (
-            i + 1 < len(lines)
-            and not in_quote
-            and not in_list
-            and current_block
-            and current_block["type"] == "text"
-        ):
+        if i + 1 < len(lines) and not in_quote and not in_list and current_block and current_block["type"] == "text":
             next_line = lines[i + 1].strip()
             if re.match(r"^=+$", next_line):
                 # Level 1 heading
@@ -251,9 +241,7 @@ def split_markdown_into_blocks(markdown_text: str) -> List[Dict[str, str]]:
             else:
                 # Continuing a list
                 # Check if this is a new list (different indent or type)
-                if (indent != current_list_indent) or (
-                    is_ordered != (list_type == "ordered")
-                ):
+                if (indent != current_list_indent) or (is_ordered != (list_type == "ordered")):
                     # Different list - end current one and start new
                     blocks.append(
                         {
@@ -315,11 +303,7 @@ def split_markdown_into_blocks(markdown_text: str) -> List[Dict[str, str]]:
 
         # Handle normal text blocks with proper paragraph breaks (blank lines)
         if stripped_line or (current_block and current_block["type"] == "text"):
-            if (
-                stripped_line == ""
-                and current_block
-                and current_block["type"] == "text"
-            ):
+            if stripped_line == "" and current_block and current_block["type"] == "text":
                 # Empty line after text - end paragraph
                 blocks.append(current_block)
                 current_block = None
@@ -352,9 +336,7 @@ def split_markdown_into_blocks(markdown_text: str) -> List[Dict[str, str]]:
         blocks.append(quote_block)
 
     if in_list:
-        blocks.append(
-            {"type": "list", "content": "", "items": list_items, "list_type": list_type}
-        )
+        blocks.append({"type": "list", "content": "", "items": list_items, "list_type": list_type})
 
     if in_code_block:
         # Unclosed code block - best effort to add it

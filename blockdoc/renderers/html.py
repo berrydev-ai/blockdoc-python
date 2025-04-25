@@ -25,11 +25,7 @@ def render_to_html(article):
     Returns:
         str: HTML representation
     """
-    if (
-        not article
-        or "blocks" not in article
-        or not isinstance(article["blocks"], list)
-    ):
+    if not article or "blocks" not in article or not isinstance(article["blocks"], list):
         raise ValueError("Invalid article structure")
 
     html = [
@@ -60,7 +56,9 @@ def render_block(block):
     block_type = block.get("type", "")
 
     # Wrapper with block ID and type as data attributes
-    open_wrapper = f'<div class="blockdoc-block blockdoc-{block_type}" data-block-id="{block_id}" data-block-type="{block_type}">'
+    open_wrapper = (
+        f'<div class="blockdoc-block blockdoc-{block_type}" data-block-id="{block_id}" data-block-type="{block_type}">'
+    )
     close_wrapper = "</div>"
 
     if block_type == "text":
@@ -219,9 +217,7 @@ def render_quote_block(block):
     html = f'<blockquote class="blockdoc-quote">{markdown(content)}</blockquote>'
 
     if attribution:
-        html += (
-            f'<cite class="blockdoc-attribution">{sanitize_html(attribution)}</cite>'
-        )
+        html += f'<cite class="blockdoc-attribution">{sanitize_html(attribution)}</cite>'
 
     return html
 
@@ -315,9 +311,7 @@ def extract_youtube_id(url):
         return youtu_be_match.group(1)
 
     # Check for youtube.com format
-    youtube_match = re.match(
-        r"https?://(?:www\.)?youtube\.com/watch\?v=([a-zA-Z0-9_-]+)", url
-    )
+    youtube_match = re.match(r"https?://(?:www\.)?youtube\.com/watch\?v=([a-zA-Z0-9_-]+)", url)
     if youtube_match:
         return youtube_match.group(1)
 

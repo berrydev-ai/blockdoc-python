@@ -19,9 +19,7 @@ try:
     import pygments
 except ImportError:
     print("Installing required dependencies...")
-    subprocess.check_call(
-        [sys.executable, "-m", "pip", "install", "markdown", "pygments", "jsonschema"]
-    )
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "markdown", "pygments", "jsonschema"])
     print("Dependencies installed successfully.")
 
 from blockdoc import Block, BlockDocDocument
@@ -123,11 +121,7 @@ print(html)""",
     )
 
     # Add a quote
-    blog_post.add_block(
-        Block.text(
-            "quote-intro", "BlockDoc was designed with a specific philosophy in mind:"
-        )
-    )
+    blog_post.add_block(Block.text("quote-intro", "BlockDoc was designed with a specific philosophy in mind:"))
 
     quote_block = Block(
         {
@@ -211,9 +205,7 @@ def main():
     )
 
     print("Saving updated document...")
-    with open(
-        os.path.join(output_dir, "blog-post-updated.json"), "w", encoding="utf-8"
-    ) as f:
+    with open(os.path.join(output_dir, "blog-post-updated.json"), "w", encoding="utf-8") as f:
         f.write(blog_post.to_json())
 
     print("Example complete! Output files saved to:", output_dir)

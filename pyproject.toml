@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [tool.ruff]
 target-version = "py37"
-line-length = 88
+line-length = 120
 exclude = [
     ".git",
     ".ruff_cache",
@@ -16,7 +16,14 @@ exclude = [
 [tool.ruff.lint]
 # Enable pycodestyle (E), Pyflakes (F), isort (I), and more
 select = ["E", "F", "I", "W", "N", "UP", "B", "C4", "SIM", "ERA"]
-ignore = ["E203"]
+ignore = [
+    "B904",
+    "E203",
+    "E501",
+    "E741",
+    "ERA001",
+    "F401",
+]
 
 [tool.ruff.lint.isort]
 known-first-party = ["blockdoc"]
@@ -32,7 +39,7 @@ python_files = "test_*.py"
 addopts = "--cov=blockdoc"
 
 [tool.mypy]
-python_version = "3.7"
+python_version = "3.12"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = false
