@@ -1,6 +1,7 @@
 """
 Test the Markdown to BlockDoc converter
 """
+
 import pytest
 
 from blockdoc.conversions.markdown import markdown_to_blockdoc
@@ -13,9 +14,9 @@ def test_markdown_to_blockdoc_basic():
     
 This is a paragraph with **bold** and *italic* text.
     """
-    
+
     doc = markdown_to_blockdoc(markdown)
-    
+
     assert isinstance(doc, BlockDocDocument)
     assert doc.article["title"] == "Test Document"
     assert len(doc.article["blocks"]) == 1
@@ -29,9 +30,9 @@ def test_markdown_to_blockdoc_with_explicit_title():
     
 This is a paragraph.
     """
-    
+
     doc = markdown_to_blockdoc(markdown, title="Explicit Title")
-    
+
     assert doc.article["title"] == "Explicit Title"
 
 
@@ -41,14 +42,11 @@ def test_markdown_to_blockdoc_with_metadata():
     
 This is a paragraph.
     """
-    
-    metadata = {
-        "author": "Test Author",
-        "tags": ["test", "markdown"]
-    }
-    
+
+    metadata = {"author": "Test Author", "tags": ["test", "markdown"]}
+
     doc = markdown_to_blockdoc(markdown, metadata=metadata)
-    
+
     assert doc.article["metadata"]["author"] == "Test Author"
     assert "test" in doc.article["metadata"]["tags"]
 
@@ -82,15 +80,15 @@ def test():
 
 Final paragraph.
 """
-    
+
     doc = markdown_to_blockdoc(markdown)
-    
+
     # Check number of blocks (should have 9 blocks)
     assert len(doc.article["blocks"]) == 9
-    
+
     # Extract block types
     block_types = [block["type"] for block in doc.article["blocks"]]
-    
+
     # Check that we have all the expected block types
     assert "heading" in block_types
     assert "text" in block_types
@@ -99,21 +97,21 @@ Final paragraph.
     assert "quote" in block_types
     assert "image" in block_types
     assert "divider" in block_types
-    
+
     # Check heading levels
     headings = [block for block in doc.article["blocks"] if block["type"] == "heading"]
     assert any(h["level"] == 2 for h in headings)
-    
+
     # Check list types
     lists = [block for block in doc.article["blocks"] if block["type"] == "list"]
     list_types = [l["list_type"] for l in lists]
     assert "ordered" in list_types
     assert "unordered" in list_types
-    
+
     # Check code block language
     code_blocks = [block for block in doc.article["blocks"] if block["type"] == "code"]
     assert code_blocks[0]["language"] == "python"
-    
+
     # Check quote attribution
     quotes = [block for block in doc.article["blocks"] if block["type"] == "quote"]
     assert "Attribution" in quotes[0]["attribution"]
@@ -122,6 +120,6 @@ Final paragraph.
 def test_empty_markdown():
     """Test conversion of empty markdown"""
     doc = markdown_to_blockdoc("")
-    
+
     assert doc.article["title"] == "Untitled Document"
     assert len(doc.article["blocks"]) == 0

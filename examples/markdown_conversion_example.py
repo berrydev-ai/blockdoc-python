@@ -104,25 +104,31 @@ def main():
 
     # Save the document as JSON
     print("Saving document as JSON...")
-    with open(os.path.join(output_dir, "markdown-converted.json"), "w", encoding="utf-8") as f:
+    with open(
+        os.path.join(output_dir, "markdown-converted.json"), "w", encoding="utf-8"
+    ) as f:
         f.write(doc.to_json(indent=2))
 
     # Render back to Markdown
     print("Rendering back to Markdown...")
     markdown = doc.render_to_markdown()
-    with open(os.path.join(output_dir, "markdown-roundtrip.md"), "w", encoding="utf-8") as f:
+    with open(
+        os.path.join(output_dir, "markdown-roundtrip.md"), "w", encoding="utf-8"
+    ) as f:
         f.write(markdown)
 
     # Render to HTML
     print("Rendering to HTML...")
     html = doc.render_to_html()
-    with open(os.path.join(output_dir, "markdown-converted.html"), "w", encoding="utf-8") as f:
+    with open(
+        os.path.join(output_dir, "markdown-converted.html"), "w", encoding="utf-8"
+    ) as f:
         f.write(html)
 
     # Display block structure
     print("\nDocument structure:")
     for i, block in enumerate(doc.article["blocks"]):
-        print(f"{i+1}. Type: {block['type']}, ID: {block['id']}")
+        print(f"{i + 1}. Type: {block['type']}, ID: {block['id']}")
 
     print("\nExample complete! Output files saved to:", output_dir)
     print("• markdown-converted.json - The BlockDoc document in JSON format")

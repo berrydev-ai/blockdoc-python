@@ -75,9 +75,7 @@ def test_document_add_block():
 
     # Try adding a block with existing ID
     with pytest.raises(ValueError) as excinfo:
-        doc.add_block(
-            {"id": "intro", "type": "text", "content": "New introduction"}
-        )
+        doc.add_block({"id": "intro", "type": "text", "content": "New introduction"})
     assert "Block with ID 'intro' already exists" in str(excinfo.value)
 
 
@@ -124,9 +122,7 @@ def test_document_update_block():
     doc.add_block(Block.text("intro", "Introduction"))
 
     # Update the block
-    updated_block = doc.update_block(
-        "intro", {"content": "Updated introduction"}
-    )
+    updated_block = doc.update_block("intro", {"content": "Updated introduction"})
 
     assert updated_block["content"] == "Updated introduction"
     assert doc.article["blocks"][0]["content"] == "Updated introduction"
@@ -219,9 +215,7 @@ def test_document_from_dict():
         "article": {
             "title": "Test Document",
             "metadata": {"author": "Test Author"},
-            "blocks": [
-                {"id": "intro", "type": "text", "content": "Introduction"}
-            ],
+            "blocks": [{"id": "intro", "type": "text", "content": "Introduction"}],
         }
     }
 
@@ -241,9 +235,7 @@ def test_document_from_json():
             "article": {
                 "title": "Test Document",
                 "metadata": {"author": "Test Author"},
-                "blocks": [
-                    {"id": "intro", "type": "text", "content": "Introduction"}
-                ],
+                "blocks": [{"id": "intro", "type": "text", "content": "Introduction"}],
             }
         }
     )
