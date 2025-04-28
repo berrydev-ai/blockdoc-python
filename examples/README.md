@@ -21,6 +21,25 @@ Run it with:
 python examples/basic_example.py
 ```
 
+### Markdown Conversion Web App
+
+The [streamlit_app.py](streamlit_app.py) provides a user-friendly web interface for converting Markdown to BlockDoc:
+
+- Real-time Markdown to BlockDoc conversion
+- Side-by-side view of input and output
+- Document metadata support
+- HTML preview of the rendered BlockDoc document
+- JSON download functionality
+
+Run it with:
+
+```bash
+pip install streamlit
+streamlit run examples/streamlit_app.py
+```
+
+See [streamlit_app_README.md](streamlit_app_README.md) for more details.
+
 ### Simple Blog
 
 The [simple-blog](simple-blog/) directory contains a more complete example of creating a blog using BlockDoc:
