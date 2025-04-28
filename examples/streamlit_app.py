@@ -6,15 +6,18 @@ A Streamlit-based web interface for converting Markdown to BlockDoc format
 
 import json
 import os
-import sys
 from datetime import datetime
-
-# Add the parent directory to sys.path to import blockdoc
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 import streamlit as st
 
-from blockdoc import markdown_to_blockdoc
+try:
+    # Try to import directly (for deployed environment)
+    from blockdoc import markdown_to_blockdoc
+except ImportError:
+    # Local development fallback
+    import sys
+    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+    from blockdoc import markdown_to_blockdoc
 
 # Sample markdown for demonstration
 SAMPLE_MARKDOWN = """# Markdown to BlockDoc Conversion
